@@ -4,15 +4,17 @@ Vagrant boxes mix for my projects.
 
 ## Step by step (SL6 as an example):
 
-    # install vbkick
-    git clone https://github.com/wilas/vbkick
-    cd vbkick && sudo make install && cd ..
+    # installed vbkick is required
+    # git clone https://github.com/wilas/vbkick
+    # cd vbkick && sudo make install && cd ..
+    
+    # installed vagrant is required
+    # http://docs.vagrantup.com/v2/installation/index.html
 
     cd SL6_box
     vbkick build 'SL6_box'
     vbkick export 'SL6_box'
 
-    # installed vagrant required
     vagrant box add 'SL6' 'SL6_box.box'
     vagrant box list
 
