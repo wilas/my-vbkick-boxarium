@@ -6,7 +6,7 @@ Vagrant boxes mix for my projects.
 
     # installed vbkick is required
     # git clone https://github.com/wilas/vbkick
-    # cd vbkick && sudo make install && cd ..
+    # cd vbkick && sudo make install
 
     # installed vagrant is required
     # http://docs.vagrantup.com/v2/installation/index.html
