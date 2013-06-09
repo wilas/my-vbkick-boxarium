@@ -4,7 +4,7 @@
 # set password
 echo vbkick:vbkick | /usr/sbin/chpasswd
 # give sudo access (grants all permissions to user vbkick)
-echo "vbkick ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/vbkick
+echo "vbkick ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/vbkick
 chmod 0440 /etc/sudoers.d/vbkick
 # add vbkick's public key - user can ssh without password
 mkdir -pm 700 ~vbkick/.ssh
