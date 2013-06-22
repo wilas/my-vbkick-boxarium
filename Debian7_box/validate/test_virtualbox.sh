@@ -9,7 +9,7 @@ version=$(VBoxControl --version) # e.g. 4.2.12r84980
 version=${version%r*} #e.g. 4.2.12
 # Then I expect version is up-to-date
 if [ $version = "${VBOX_VERSION}" ]; then
-    printf "\e[01;32mVirtualbox Guest Additions: OK\n\e[0m";
+    printf "\e[1;32mVirtualbox Guest Additions: OK\n\e[0m";
 else
-    printf "\e[01;31mVirtualbox Guest Additions: FAIL\n\e[0m";
+    printf "\e[1;31mVirtualbox Guest Additions: FAIL\n\e[0m";
 fi
