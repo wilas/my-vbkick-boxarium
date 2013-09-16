@@ -6,7 +6,6 @@
 echo vagrant:vagrant | /usr/sbin/chpasswd
 # give sudo access (grants all permissions to user vbkick)
 echo "vagrant ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/vagrant
-#echo "Defaults:vagrant !requiretty" >> /etc/sudoers.d/vagrant
 chmod 0440 /etc/sudoers.d/vagrant
 # add vagrant's public key - user can ssh without password
 mkdir -pm 700 ~vagrant/.ssh

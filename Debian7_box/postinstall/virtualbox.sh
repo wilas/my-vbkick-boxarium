@@ -3,6 +3,12 @@
 apt-get -y install linux-headers-$(uname -r) dkms
 # apt-get -y install libdbus-1-3
 # VBoxGuestAdditions iso is attached (by vbkick) to IDE Controller port 1 device 0
-mount /dev/sr1 /mnt
+if [ -b /dev/sr1 ]; then
+    mount /dev/sr1 /mnt
+elif [ -b /dev/sr0 ]; then
+    mount /dev/sr0 /mnt
+else
+    exit 1
+fi
 sh /mnt/VBoxLinuxAdditions.run
 umount /mnt

@@ -13,6 +13,7 @@ Vagrant boxes mix for my projects.
 
     cd SL6_box
     vbkick build 'SL6_box'
+    vbkick postinstall 'SL6_box'
     vbkick validate 'SL6_box'
     vbkick export 'SL6_box'
 
