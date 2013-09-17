@@ -4,6 +4,7 @@
  - kernel 3.8 (other, just edit url): http://kernelnewbies.org/Linux_3.8
  - docker on debian 7 wheezy using ubuntu kernel: http://www.grendelman.net/wp/docker-on-debian-wheezy/
  - other kernels: http://kernel.ubuntu.com/~kernel-ppa/mainline/  (wget headers-all.deb, headers.deb, image.deb + sudo dpkg -i *.deb)
+ - liquorix multimedia kernel: http://liquorix.net/
 
 [Preseed]
  - example: http://www.debian.org/releases/wheezy/example-preseed.txt
@@ -17,9 +18,15 @@
 
 [Debian Unstable "Sid"]
  - http://www.debian.org/releases/sid/
+ - https://wiki.debian.org/DebianUnstable#How_do_I_install_Unstable.3F
 
 [Debian Experimental]
  - http://packages.debian.org/experimental/
 
 [lxc]
  - http://www.stefan-seelmann.de/wiki/lxc
+
+[Other]
+ - multimedia: http://www.deb-multimedia.org/
+ - mozilla team: http://mozilla.debian.net/
+ - missing firmware: http://www.debian.org/releases/stable/i386/ch06s04.html.en

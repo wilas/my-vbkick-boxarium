@@ -8,7 +8,7 @@ virtualbox.sh
 ruby.sh
 ansible.sh
 puppet.sh
-#puppet_wheezy.sh
+##puppet_wheezy.sh
 chef.sh
 nfs.sh
 tuning.sh
