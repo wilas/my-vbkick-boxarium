@@ -1,15 +1,15 @@
 # this is comment
 # Note: scripts are exec in order defined here
-#base.sh
-#sudo.sh
-##vagrant.sh
-##vbkick_user.sh
-#virtualbox.sh
-#ruby.sh
+base.sh
+sudo.sh
+#vagrant.sh
+#vbkick_user.sh
+virtualbox.sh
+ruby.sh
 ansible.sh
-#puppet.sh
-#chef.sh
-#nfs.sh
-#tuning.sh
-#cleanup.sh
-#zerodisk.sh
+puppet.sh
+chef.sh
+nfs.sh
+tuning.sh
+cleanup.sh
+zerodisk.sh
