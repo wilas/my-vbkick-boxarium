@@ -42,7 +42,8 @@
  - package debian: https://github.com/dotcloud/docker/issues/251
 
 ## Debian Jessie/Sid (testing/unstable)
- - install from src: https://gist.github.com/datagrok/5785876
+ - install from src and make *.dep: https://github.com/dotcloud/docker/tree/master/packaging/debian
+ - install from src using go: https://gist.github.com/datagrok/5785876 (http://cloudistic.me/blog/installing-docker-from-source-with-go-1-1/)
  - install using "ubuntu docker repo": http://docs.docker.io/en/latest/installation/ubuntulinux/
 
 ## Debian Wheezy (stable)

@@ -28,6 +28,7 @@
  - http://www.stefan-seelmann.de/wiki/lxc
 
 [Other]
+ - debuild -us -uc (skip promptings for the GPG signatures): http://www.debian.org/doc/manuals/maint-guide/build.en.html#debuild
  - multimedia: http://www.deb-multimedia.org/
  - mozilla team: http://mozilla.debian.net/
  - missing firmware: http://www.debian.org/releases/stable/i386/ch06s04.html.en
