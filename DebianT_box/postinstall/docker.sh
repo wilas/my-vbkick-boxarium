@@ -1,7 +1,10 @@
-# Install lxc-docker using ubuntu package from docker.io repo
+# Install lxc-docker using repo for ubuntu from docker.io
+
+# some extra package are needed, installed using preseeding (look into kickstart/ directory)
+#apt-get -y install curl wget
 
 # https in sources
-apt-get -y install apt-transport-https curl
+apt-get -y install apt-transport-https
 
 # Add the Docker repository
 if [ ! -f "/etc/apt/sources.list.d/docker.list" ]; then
@@ -13,14 +16,15 @@ fi
 apt-get update
 
 # Install lxc-docker with dependencies
+if [ ! -f "/etc/default/lxc" ]; then
 cat > /etc/default/lxc << EOF
 # /etc/default/lxc
 
 LXC_AUTO="true"
 LXC_DIRECTORY="/var/lib/lxc"
 EOF
+fi
 apt-get -y install lxc-docker --force-yes
-
 # Fix installation - Ubuntu package use upstart to start/stop the docker daemon, this doesn't work on Debian
 version=$(apt-cache search lxc-docker | sort -r -k1,1 | head -1 | cut -f1 -d' ' | tr -d 'lxc-docker-')
 sed -i 's:/sbin/start:#/sbin/start:' /var/lib/dpkg/info/lxc-docker-$version.postinst
@@ -55,9 +59,7 @@ if [ ! -f "/etc/init.d/lxc-docker" ]; then
     wget -O /tmp/lxc-docker.init --no-check-certificate https://raw.github.com/dotcloud/docker/master/packaging/debian/lxc-docker.init
     docker_path=$(which docker)
     sed -i "s:^DOCKER=.*:DOCKER=$docker_path:" /tmp/lxc-docker.init
-    cp /tmp/lxc-docker.init /etc/init.d/lxc-docker
-    chown root:root /etc/init.d/lxc-docker
-    chmod 755 /etc/init.d/lxc-docker
+    install -g 0 -o 0 -m 0755 -p /tmp/lxc-docker.init /etc/init.d/lxc-docker
     update-rc.d lxc-docker defaults
     # to remove run: update-rc.d -f lxc-docker remove
 fi

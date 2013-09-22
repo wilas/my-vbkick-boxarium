@@ -27,6 +27,9 @@
  - http://deis.io/
  - dokku
 
+# LXC
+ - http://wiki.gentoo.org/wiki/LXC
+
 # Ubuntu
  - http://docs.docker.io/en/latest/installation/ubuntulinux/
  - lxc (libvirt-lxc): https://help.ubuntu.com/lts/serverguide/lxc.html
