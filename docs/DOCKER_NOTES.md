@@ -29,6 +29,8 @@
 
 # LXC
  - http://wiki.gentoo.org/wiki/LXC
+ - missing user space: http://www.mail-archive.com/lxc-users@lists.sourceforge.net/msg04733.html
+ - missing user space: https://bugzilla.redhat.com/show_bug.cgi?id=917708
 
 # Ubuntu
  - http://docs.docker.io/en/latest/installation/ubuntulinux/

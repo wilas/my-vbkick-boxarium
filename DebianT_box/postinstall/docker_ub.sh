@@ -1,7 +1,7 @@
 # Install lxc-docker using repo for ubuntu from docker.io
 
 # some extra package are needed, installed using preseeding (look into kickstart/ directory)
-#apt-get -y install curl wget
+apt-get -y install curl wget
 
 # https in sources
 apt-get -y install apt-transport-https
@@ -33,7 +33,7 @@ apt-get -f install
 
 # Enable IPv4 forwarding (by default disabled on Debian)
 sysctl -w net.ipv4.ip_forward=1
-# permanent setting
+## permanent setting
 if grep -q '^net.ipv4.ip_forward' /etc/sysctl.conf; then
     sed -i 's:^net.ipv4.ip_forward.*:net.ipv4.ip_forward = 1:' /etc/sysctl.conf
 elif grep -q '^#net.ipv4.ip_forward' /etc/sysctl.conf; then
@@ -53,15 +53,15 @@ sed -i 's:^#GRUB_CMDLINE_LINUX=:GRUB_CMDLINE_LINUX=:' /etc/default/grub
 sed -i 's:^GRUB_CMDLINE_LINUX=.*:GRUB_CMDLINE_LINUX="cgroup_enable=memory swapaccount=1":' /etc/default/grub
 update-grub
 
-# Creates init.d srcipt
+# Creates init.d srcipt and enable service
 if [ ! -f "/etc/init.d/lxc-docker" ]; then
-    # another src: https://raw.github.com/dotcloud/docker-debian/upstream/packaging/debian/lxc-docker.init
+    ## other src: https://raw.github.com/dotcloud/docker-debian/upstream/packaging/debian/lxc-docker.init
     wget -O /tmp/lxc-docker.init --no-check-certificate https://raw.github.com/dotcloud/docker/master/packaging/debian/lxc-docker.init
     docker_path=$(which docker)
     sed -i "s:^DOCKER=.*:DOCKER=$docker_path:" /tmp/lxc-docker.init
     install -g 0 -o 0 -m 0755 -p /tmp/lxc-docker.init /etc/init.d/lxc-docker
     update-rc.d lxc-docker defaults
-    # to remove run: update-rc.d -f lxc-docker remove
+    ## to remove run: sudo invoke-rc.d lxc-docker stop && sudo update-rc.d -f lxc-docker remove
 fi
 
 # Reboot
@@ -72,6 +72,3 @@ reboot
 # sudo lxc-checkconfig
 # sudo service lxc-docker status
 # sudo docker run -i -t ubuntu /bin/bash
-
-# TODO: source version: install deps from https://gist.github.com/datagrok/5785876 + git clone + make + install *.deb
-# TODO: binary version: http://docs.docker.io/en/latest/installation/binaries/
