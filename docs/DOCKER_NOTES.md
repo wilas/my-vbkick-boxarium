@@ -32,9 +32,13 @@
  - missing user space: http://www.mail-archive.com/lxc-users@lists.sourceforge.net/msg04733.html
  - missing user space: https://bugzilla.redhat.com/show_bug.cgi?id=917708
 
-# Ubuntu
+# Ubuntu (move me...)
  - http://docs.docker.io/en/latest/installation/ubuntulinux/
  - lxc (libvirt-lxc): https://help.ubuntu.com/lts/serverguide/lxc.html
+ - cgroups in ubuntu: http://serverfault.com/questions/485919/cannot-find-network-subsystem-in-cgroup-on-ubuntu-12-04-lts
+ - ufw: http://stephen.rees-carter.net/2012/09/how-to-enable-ip-forwarding-with-ufw/
+ - ubuntu kernel: https://wiki.ubuntu.com/Kernel/LTSEnablementStack
+ - ubuntu schedule: https://wiki.ubuntu.com/PrecisePangolin/ReleaseSchedule
 
 ## Debian (general)
  - https://wiki.debian.org/LXC

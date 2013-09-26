@@ -8,7 +8,9 @@
  - liquorix multimedia kernel: http://liquorix.net/
 
 [Preseed]
+ - !!! http://www.debian.org/releases/stable/amd64/apbs04.html.en
  - example: http://www.debian.org/releases/wheezy/example-preseed.txt
+ - example from ubuntu: http://sfxpt.wordpress.com/2013/06/09/get-the-debianubuntu-ready-and-customized-the-way-you-like-in-10-minutes/
 
 [Debian Stable + Backports]
  - http://backports.debian.org/
@@ -16,10 +18,18 @@
 
 [Debian Testing "Jessie"]
  - http://www.debian.org/releases/jessie/
+ - http://ftp.debian.org/debian/dists/
+ - http://security.debian.org/dists/
 
 [Debian Unstable "Sid"]
  - http://www.debian.org/releases/sid/
  - https://wiki.debian.org/DebianUnstable#How_do_I_install_Unstable.3F
+ - !!! http://wooledge.org/~greg/sidfaq.html
+ - mini.iso: https://wiki.debian.org/InstallFAQ
+ - /etc/apt/apt.conf.d/05default-release: http://forums.debian.net/viewtopic.php?f=30&t=103878
+ - /etc/apt/preferences: http://linuxaria.com/howto/how-to-install-a-single-package-from-debian-sid-or-debian-testing
+ - APT::Default-Release: http://www.linuxquestions.org/questions/linux-distributions-5/best-way-to-install-debian-sid-45156/
+ - apt-cache policy: https://wiki.debian.org/DebianUnstable#How_do_I_install_Unstable.3F
 
 [Debian Experimental]
  - http://packages.debian.org/experimental/
@@ -32,3 +42,4 @@
  - multimedia: http://www.deb-multimedia.org/
  - mozilla team: http://mozilla.debian.net/
  - missing firmware: http://www.debian.org/releases/stable/i386/ch06s04.html.en
+ - sourcelist gen: http://debgen.simplylinux.ch/
