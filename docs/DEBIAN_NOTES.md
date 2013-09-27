@@ -11,6 +11,7 @@
  - !!! http://www.debian.org/releases/stable/amd64/apbs04.html.en
  - example: http://www.debian.org/releases/wheezy/example-preseed.txt
  - example from ubuntu: http://sfxpt.wordpress.com/2013/06/09/get-the-debianubuntu-ready-and-customized-the-way-you-like-in-10-minutes/
+ - http://www.debian.org/devel/debian-installer
 
 [Debian Stable + Backports]
  - http://backports.debian.org/
