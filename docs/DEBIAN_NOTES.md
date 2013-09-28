@@ -38,6 +38,9 @@
 [lxc]
  - http://www.stefan-seelmann.de/wiki/lxc
 
+[init]
+ - upstart, systemd, sysvinit: http://lists.debian.org/debian-devel/2012/03/msg00452.html
+
 [Other]
  - debuild -us -uc (skip promptings for the GPG signatures): http://www.debian.org/doc/manuals/maint-guide/build.en.html#debuild
  - multimedia: http://www.deb-multimedia.org/
