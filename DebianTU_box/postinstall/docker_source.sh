@@ -57,3 +57,4 @@ reboot
 # sudo lxc-checkconfig
 # sudo service lxc-docker status
 # sudo lxc-docker run -i -t ubuntu /bin/bash
+# sudo lxc-docker run -dns 8.8.8.8 centos ping google.com
