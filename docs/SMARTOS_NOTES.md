@@ -8,6 +8,7 @@
  - vagrant + smartos: https://github.com/jacobgroundwater/vagrant-smartos/pull/1
 
 [Learn]
+ - watch me before start, it save you a lot of time: http://www.youtube.com/watch?v=dxZExLeJz2I
  - Intro: http://cuddletech.com/slides/SmartOS-SA-Intro.pdf
  - Doc: http://wiki.smartos.org/display/DOC/Home
  - linux_2_smartos cheatsheet: http://wiki.smartos.org/display/DOC/The+Linux-to-SmartOS+Cheat+Sheet
