@@ -47,16 +47,12 @@ update-grub
 if [ ! -f "/etc/init.d/lxc-docker" ]; then
     ## other src: https://raw.github.com/dotcloud/docker-debian/upstream/packaging/debian/lxc-docker.init
     wget -O /tmp/lxc-docker.init --no-check-certificate https://raw.github.com/dotcloud/docker/master/packaging/debian/lxc-docker.init
-    docker_path=$(which lxc-docker)
+    docker_path="/usr/local/bin/lxc-docker"
     sed -i "s:^DOCKER=.*:DOCKER=$docker_path:" /tmp/lxc-docker.init
     install -g 0 -o 0 -m 0755 -p /tmp/lxc-docker.init /etc/init.d/lxc-docker
     update-rc.d lxc-docker defaults
     ## to remove run: sudo invoke-rc.d lxc-docker stop && sudo update-rc.d -f lxc-docker remove
 fi
-
-# Reboot
-printf "reboot ...\n"
-reboot
 
 # Quick test
 # sudo lxc-checkconfig

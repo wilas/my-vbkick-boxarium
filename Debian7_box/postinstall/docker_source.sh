@@ -35,7 +35,7 @@ if [ ! -f "/usr/bin/lxc-docker" ]; then
     ## go was installed manually, remove golang from deps.
     sed -i 's:^\(Build-Depends.*\), golang:\1:' "${pkg_location}/control"
     ## run make, it exit with 2, but this is ok, we don't sign the package (only for local use)
-    cd $pkg_location && make debian
+    cd $pkg_location && make debian || true
     ## install already created package
     dpkg -i $pkg_location/lxc-docker_*-1_amd64.deb
 fi
@@ -61,10 +61,6 @@ fi
 sed -i 's:^#GRUB_CMDLINE_LINUX=:GRUB_CMDLINE_LINUX=:' /etc/default/grub
 sed -i 's:^GRUB_CMDLINE_LINUX=.*:GRUB_CMDLINE_LINUX="cgroup_enable=memory swapaccount=1":' /etc/default/grub
 update-grub
-
-# Reboot
-printf "reboot ...\n"
-reboot
 
 # Quick test
 # sudo lxc-checkconfig

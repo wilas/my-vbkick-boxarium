@@ -13,7 +13,3 @@ apt-get -y install -t wheezy-backports linux-image-amd64 linux-headers-amd64
 
 # Note: AUFS is included in the kernels built by the Debian and Ubuntu distributions, is not part of the standard kernel. 
 # More: http://docs.docker.io/en/latest/installation/kernel/#kernel
-
-# Reboot
-printf "reboot ...\n"
-reboot
