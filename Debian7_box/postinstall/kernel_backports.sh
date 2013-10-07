@@ -1,6 +1,9 @@
+#!/bin/bash
+set -eEu
+
 # Debian backports: http://backports.debian.org/Instructions/
 # Add backports (choose your mirror from http://backports.debian.org/Mirrors/)
-if [ ! -f "/etc/apt/sources.list.d/wheezy-backports.list" ]; then
+if [[ ! -f "/etc/apt/sources.list.d/wheezy-backports.list" ]]; then
     sh -c "echo 'deb http://ftp.debian.org/debian wheezy-backports main' >> /etc/apt/sources.list.d/wheezy-backports.list"
 fi
 

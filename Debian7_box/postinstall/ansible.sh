@@ -1,3 +1,6 @@
+#!/bin/bash
+set -eEu
+
 # Install ansible
 apt-get install -y cdbs debhelper dpkg-dev git-core reprepro python-support python-apt python-paramiko python-yaml python-jinja2 sshpass
 cd /tmp && git clone git://github.com/ansible/ansible.git
