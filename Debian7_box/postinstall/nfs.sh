@@ -2,4 +2,4 @@
 set -eEu
 
 # Install NFS for Vagrant
-apt-get -y install nfs-common 
+apt-get -y install nfs-common
