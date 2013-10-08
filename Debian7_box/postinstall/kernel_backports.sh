@@ -5,10 +5,8 @@ set -eEu
 # Add backports (choose your mirror from http://backports.debian.org/Mirrors/)
 if [[ ! -f "/etc/apt/sources.list.d/wheezy-backports.list" ]]; then
     sh -c "echo 'deb http://ftp.debian.org/debian wheezy-backports main' >> /etc/apt/sources.list.d/wheezy-backports.list"
+    apt-get -y update
 fi
-
-# Update sources
-apt-get update
 
 # Install the new linux kernel and headers from backports
 apt-get -y install -t wheezy-backports linux-image-amd64 linux-headers-amd64

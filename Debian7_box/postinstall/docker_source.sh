@@ -23,7 +23,7 @@ if dpkg -l golang 1>/dev/null 2>&1; then
     apt-get -y autoremove golang
 fi
 if [[ ! -f "/usr/local/bin/go" ]]; then
-    wget -O /tmp/go.tar.gz https://go.googlecode.com/files/go1.1.1.linux-amd64.tar.gz
+    wget -O /tmp/go.tar.gz --no-check-certificate https://go.googlecode.com/files/go1.1.1.linux-amd64.tar.gz
     tar -C /usr/local -xzf /tmp/go.tar.gz
     ln -fs /usr/local/go/bin/go /usr/local/bin/go
 fi

@@ -2,9 +2,12 @@
 set -eEu
 
 # Install ansible
-apt-get install -y cdbs debhelper dpkg-dev git-core reprepro python-support python-apt python-paramiko python-yaml python-jinja2 sshpass
-cd /tmp && git clone git://github.com/ansible/ansible.git
-cd /tmp/ansible/ && git checkout release1.3.2 && make deb
-dpkg -i /tmp/ansible*.deb
-rm -rf /tmp/ansible
-rm -f /tmp/ansible*.deb
+version="1.3.2"
+if ! dpkg -l ansible | grep -qw "${version}" >/dev/null 2>&1; then
+    apt-get install -y cdbs debhelper dpkg-dev git reprepro python-support python-apt python-paramiko python-yaml python-jinja2 sshpass
+    cd /tmp && git clone git://github.com/ansible/ansible.git
+    cd /tmp/ansible/ && git checkout "release${version}" && make deb
+    dpkg -i /tmp/ansible*.deb
+    rm -f /tmp/ansible*.deb
+    rm -rf /tmp/ansible
+fi

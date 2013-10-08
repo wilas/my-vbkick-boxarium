@@ -20,7 +20,7 @@ apt-get -y install lxc aufs-tools bsdtar
 # Get the docker binary
 if [[ ! -f "/usr/local/bin/lxc-docker" ]]; then
     ## other url: http://get.docker.io/builds/Linux/x86_64/docker-latest.tgz
-    wget -O /tmp/docker https://get.docker.io/builds/Linux/x86_64/docker-latest
+    wget -O /tmp/docker --no-check-certificate https://get.docker.io/builds/Linux/x86_64/docker-latest
     install -g 0 -o 0 -m 0755 -p /tmp/docker /usr/local/bin/lxc-docker
 fi
 
