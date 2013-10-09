@@ -1,5 +1,6 @@
 #!/bin/bash
 set -eEu
+set -o pipefail
 
 # Base install
 # Resync the package index files

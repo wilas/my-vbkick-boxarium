@@ -1,5 +1,6 @@
 #!/bin/bash
 set -eEu
+set -o pipefail
 
 # set environment variables if available
 [[ -s "adm_envrc" ]] && . "./adm_envrc"

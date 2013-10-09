@@ -1,5 +1,6 @@
 #!/bin/bash
 set -eEu
+set -o pipefail
 
 # Install docker using binaries from docker.io: http://docs.docker.io/en/latest/installation/binaries/
 
@@ -32,12 +33,12 @@ if grep -q '^net.ipv4.ip_forward' /etc/sysctl.conf; then
 elif grep -q '^#net.ipv4.ip_forward' /etc/sysctl.conf; then
     sed -i 's:^#net.ipv4.ip_forward.*:net.ipv4.ip_forward = 1:' /etc/sysctl.conf
 else
-    sh -c "echo 'net.ipv4.ip_forward = 1' >> /etc/sysctl.conf"
+    echo 'net.ipv4.ip_forward = 1' >> /etc/sysctl.conf
 fi
 
 # Mount cgroup on the system
 if ! grep -q 'cgroup' /etc/fstab; then
-    sh -c "echo 'cgroup       /sys/fs/cgroup        cgroup        defaults    0    0' >> /etc/fstab"
+    echo 'cgroup       /sys/fs/cgroup        cgroup        defaults    0    0' >> /etc/fstab
 fi
 if ! mount | grep -q 'cgroup'; then
     mount /sys/fs/cgroup

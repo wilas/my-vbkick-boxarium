@@ -1,5 +1,6 @@
 #!/bin/bash
 set -eEu
+set -o pipefail
 
 # Clean up
 apt-get -y autoremove

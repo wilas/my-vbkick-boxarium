@@ -1,5 +1,6 @@
 #!/bin/bash
 set -eEu
+set -o pipefail
 
 # Install Ruby
-apt-get -y install ruby ruby-dev libopenssl-ruby irb ri rdoc rubygems
+apt-get -y install ruby ruby-dev rubygems

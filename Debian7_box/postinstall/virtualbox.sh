@@ -1,5 +1,6 @@
 #!/bin/bash
 set -eEu
+set -o pipefail
 
 # Installing the virtualbox guest additions
 # need kernel headers to compile module and virtualbox tools
