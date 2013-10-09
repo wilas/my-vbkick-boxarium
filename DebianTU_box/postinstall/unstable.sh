@@ -1,3 +1,7 @@
+#!/bin/bash
+set -eEu
+set -o pipefail
+
 # Useful to upgrade from Jessie (testing) to Sid (unstable)
 
 # udpdate packages repo to unstable (Sid)
@@ -14,7 +18,3 @@ fi
 # upgrade and clean distro
 apt-get -y dist-upgrade
 apt-get -y autoremove
-
-# Reboot (needed if new kernel was installed)
-printf "reboot ...\n"
-reboot

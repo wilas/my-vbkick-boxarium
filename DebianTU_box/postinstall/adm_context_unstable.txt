@@ -1,5 +1,6 @@
 # this is comment
 # Note: scripts are exec in order defined here
+#unstable.sh
 base.sh
 sudo.sh
 #vagrant.sh
@@ -11,6 +12,5 @@ puppet.sh
 #puppet_wheezy.sh
 chef.sh
 nfs.sh
-tuning.sh
-#cleanup.sh
-#zerodisk.sh
+cleanup.sh
+zerodisk.sh

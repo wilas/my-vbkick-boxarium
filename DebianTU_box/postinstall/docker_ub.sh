@@ -1,3 +1,7 @@
+#!/bin/bash
+set -eEu
+set -o pipefail
+
 # Install lxc-docker using repo for ubuntu from docker.io
 
 # some extra package are needed, installed using preseeding (look into kickstart/ directory)
@@ -7,16 +11,14 @@ apt-get -y install curl wget
 apt-get -y install apt-transport-https
 
 # Add the Docker repository
-if [ ! -f "/etc/apt/sources.list.d/docker.list" ]; then
-    sh -c "curl https://get.docker.io/gpg | apt-key add -"
-    sh -c "echo 'deb https://get.docker.io/ubuntu docker main' > /etc/apt/sources.list.d/docker.list"
+if [[ ! -f "/etc/apt/sources.list.d/docker.list" ]]; then
+    curl -k https://get.docker.io/gpg | apt-key add -
+    echo 'deb https://get.docker.io/ubuntu docker main' > /etc/apt/sources.list.d/docker.list
+    apt-get -y update
 fi
 
-# Update sources
-apt-get update
-
 # Install lxc-docker with dependencies
-if [ ! -f "/etc/default/lxc" ]; then
+if [[ ! -f "/etc/default/lxc" ]]; then
 cat > /etc/default/lxc << EOF
 # /etc/default/lxc
 
@@ -24,7 +26,7 @@ LXC_AUTO="true"
 LXC_DIRECTORY="/var/lib/lxc"
 EOF
 fi
-apt-get -y install lxc-docker --force-yes
+apt-get -y install lxc-docker --force-yes || true
 # Fix installation - Ubuntu package use upstart to start/stop the docker daemon, this doesn't work on Debian
 version=$(apt-cache search lxc-docker | sort -r -k1,1 | head -1 | cut -f1 -d' ' | tr -d 'lxc-docker-')
 sed -i 's:/sbin/start:#/sbin/start:' /var/lib/dpkg/info/lxc-docker-$version.postinst
@@ -39,12 +41,14 @@ if grep -q '^net.ipv4.ip_forward' /etc/sysctl.conf; then
 elif grep -q '^#net.ipv4.ip_forward' /etc/sysctl.conf; then
     sed -i 's:^#net.ipv4.ip_forward.*:net.ipv4.ip_forward = 1:' /etc/sysctl.conf
 else
-    sh -c "echo 'net.ipv4.ip_forward = 1' >> /etc/sysctl.conf"
+    echo 'net.ipv4.ip_forward = 1' >> /etc/sysctl.conf
 fi
 
 # Mount cgroup on the system
 if ! grep -q 'cgroup' /etc/fstab; then
-    sh -c "echo 'cgroup       /sys/fs/cgroup        cgroup        defaults    0    0' >> /etc/fstab"
+    echo 'cgroup       /sys/fs/cgroup        cgroup        defaults    0    0' >> /etc/fstab
+fi
+if ! mount | grep -q 'cgroup'; then
     mount /sys/fs/cgroup
 fi
 
@@ -54,19 +58,15 @@ sed -i 's:^GRUB_CMDLINE_LINUX=.*:GRUB_CMDLINE_LINUX="cgroup_enable=memory swapac
 update-grub
 
 # Creates init.d srcipt and enable service
-if [ ! -f "/etc/init.d/lxc-docker" ]; then
+if [[ ! -f "/etc/init.d/lxc-docker" ]]; then
     ## other src: https://raw.github.com/dotcloud/docker-debian/upstream/packaging/debian/lxc-docker.init
     wget -O /tmp/lxc-docker.init --no-check-certificate https://raw.github.com/dotcloud/docker/master/packaging/debian/lxc-docker.init
-    docker_path=$(which docker)
+    docker_path="/usr/bin/docker"
     sed -i "s:^DOCKER=.*:DOCKER=$docker_path:" /tmp/lxc-docker.init
     install -g 0 -o 0 -m 0755 -p /tmp/lxc-docker.init /etc/init.d/lxc-docker
     update-rc.d lxc-docker defaults
     ## to remove run: sudo invoke-rc.d lxc-docker stop && sudo update-rc.d -f lxc-docker remove
 fi
-
-# Reboot
-printf "reboot ...\n"
-reboot
 
 # Quick test
 # sudo lxc-checkconfig

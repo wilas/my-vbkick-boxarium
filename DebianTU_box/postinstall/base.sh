@@ -1,11 +1,16 @@
-# Base install
+#!/bin/bash
+set -eEu
+set -o pipefail
 
+# Base install
 # Resync the package index files
 apt-get -y update
 apt-get -y dist-upgrade
 
 # Tweak sshd to prevent DNS resolution (speed up logins)
-echo 'UseDNS no' >> /etc/ssh/sshd_config
+if ! grep -q '^UseDNS no' /etc/ssh/sshd_config; then
+    echo 'UseDNS no' >> /etc/ssh/sshd_config
+fi
 
 # If X needed
 #apt-get install xserver-xorg xserver-xorg-core

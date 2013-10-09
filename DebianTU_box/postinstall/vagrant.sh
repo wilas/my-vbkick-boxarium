@@ -1,3 +1,7 @@
+#!/bin/bash
+set -eEu
+set -o pipefail
+
 # Vagrant specific
 # Create vagrant user and group
 /usr/sbin/groupadd vagrant
