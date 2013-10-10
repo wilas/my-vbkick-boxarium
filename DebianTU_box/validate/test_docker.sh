@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Feature: lxc-docker
 # Given docker command
 which docker 1>/dev/null 2>&1 || which lxc-docker 1>/dev/null 2>&1
