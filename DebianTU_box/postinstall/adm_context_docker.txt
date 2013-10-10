@@ -8,12 +8,10 @@ virtualbox.sh
 ruby.sh
 ansible.sh
 puppet.sh
-#puppet_wheezy.sh
 chef.sh
 nfs.sh
-kernel_backports.sh
-docker_binary.sh
-#docker_source.sh
+#docker_binary.sh
+docker_source.sh
 #docker_ub.sh
 cleanup.sh
 zerodisk.sh
