@@ -1,6 +1,5 @@
 #!/bin/bash
-set -eEu
-set -o pipefail
+set -e -E -u -o pipefail; shopt -s failglob;
 
 # Install docker using binaries from docker.io: http://docs.docker.io/en/latest/installation/binaries/
 

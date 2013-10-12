@@ -1,6 +1,5 @@
 #!/bin/bash
-set -eEu
-set -o pipefail
+set -e -E -u -o pipefail; shopt -s failglob;
 
 # Installing the virtualbox guest additions
 # need kernel headers to compile module and virtualbox tools

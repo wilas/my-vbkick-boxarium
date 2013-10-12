@@ -1,6 +1,5 @@
 #!/bin/bash
-set -eEu
-set -o pipefail
+set -e -E -u -o pipefail; shopt -s failglob;
 
 # Debian backports: http://backports.debian.org/Instructions/
 # Add backports (choose your mirror from http://backports.debian.org/Mirrors/)

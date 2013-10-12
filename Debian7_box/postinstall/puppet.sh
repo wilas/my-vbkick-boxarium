@@ -1,6 +1,5 @@
 #!/bin/bash
-set -eEu
-set -o pipefail
+set -e -E -u -o pipefail; shopt -s failglob;
 
 if [[ ! -f "/etc/apt/sources.list.d/puppetlabs.list" ]]; then
     wget -O /tmp/puppetlabs-release-wheezy.deb http://apt.puppetlabs.com/puppetlabs-release-wheezy.deb
