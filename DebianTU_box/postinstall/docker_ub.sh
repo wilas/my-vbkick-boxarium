@@ -1,6 +1,5 @@
 #!/bin/bash
-set -eEu
-set -o pipefail
+set -e -E -u -o pipefail; shopt -s failglob;
 
 # Install lxc-docker using repo for ubuntu from docker.io
 
@@ -59,8 +58,9 @@ update-grub
 
 # Creates init.d srcipt and enable service
 if [[ ! -f "/etc/init.d/lxc-docker" ]]; then
-    ## other src: https://raw.github.com/dotcloud/docker-debian/upstream/packaging/debian/lxc-docker.init
-    wget -O /tmp/lxc-docker.init --no-check-certificate https://raw.github.com/dotcloud/docker/master/packaging/debian/lxc-docker.init
+    ## Read: https://github.com/dotcloud/docker/pull/2169
+    #wget -O /tmp/lxc-docker.init --no-check-certificate https://raw.github.com/dotcloud/docker/master/hack/packaging/debian/lxc-docker.init
+    wget -O /tmp/lxc-docker.init --no-check-certificate https://raw.github.com/dotcloud/docker-debian/master/packaging/debian/lxc-docker.init
     docker_path="/usr/bin/docker"
     sed -i "s:^DOCKER=.*:DOCKER=$docker_path:" /tmp/lxc-docker.init
     install -g 0 -o 0 -m 0755 -p /tmp/lxc-docker.init /etc/init.d/lxc-docker

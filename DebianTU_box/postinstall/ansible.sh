@@ -1,6 +1,5 @@
 #!/bin/bash
-set -eEu
-set -o pipefail
+set -e -E -u -o pipefail; shopt -s failglob;
 
 # Install ansible
 version="1.3.2"

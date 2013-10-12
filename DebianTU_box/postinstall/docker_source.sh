@@ -1,6 +1,5 @@
 #!/bin/bash
-set -eEu
-set -o pipefail
+set -e -E -u -o pipefail; shopt -s failglob;
 
 # Install docker from sources (github): https://github.com/dotcloud/docker.git
 
@@ -20,9 +19,10 @@ apt-get -y install lxc aufs-tools bsdtar golang
 
 # Build and install the lxc-docker*.deb package from the github
 if ! dpkg -l lxc-docker >/dev/null 2>&1; then
-    ## get the src (other src: git://github.com/dotcloud/docker-debian.git)
-    cd /tmp && git clone git://github.com/dotcloud/docker.git
-    pkg_location="/tmp/docker/packaging/debian"
+    # Read: https://github.com/dotcloud/docker/pull/2169
+    #cd /tmp && git clone git://github.com/dotcloud/docker.git
+    cd /tmp && git clone git://github.com/dotcloud/docker-debian.git
+    pkg_location="/tmp/docker-debian/packaging/debian"
     ## install deps. needed to build package
     apt-get -y install mercurial build-essential debhelper autotools-dev #devscripts
     ## run make, it exit with 2, but this is ok, we don't sign the package (only for local use)

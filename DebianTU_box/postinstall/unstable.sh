@@ -1,6 +1,5 @@
 #!/bin/bash
-set -eEu
-set -o pipefail
+set -e -E -u -o pipefail; shopt -s failglob;
 
 # Useful to upgrade from Jessie (testing) to Sid (unstable)
 
