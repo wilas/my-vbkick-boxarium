@@ -1,11 +1,16 @@
 #!/bin/bash
+set -e -E -u -o pipefail; shopt -s failglob;
 
 # Feature: lxc-docker
 # Given docker command
-which docker 1>/dev/null 2>&1 || which lxc-docker 1>/dev/null 2>&1
-[ $? -ne 0 ] && { printf "\e[1;31mdocker: FAIL\n\e[0m"; exit 1; }
+if ! command -v docker >/dev/null 2>&1 && ! command -v lxc-docker >/dev/null 2>&1; then
+    printf "\e[1;31mdocker: FAIL\n\e[0m"
+    exit
+fi
 # When I run "docker version" command
-sudo docker version 1>/dev/null 2>&1 || sudo lxc-docker version 1>/dev/null 2>&1
-[ $? -ne 0 ] && { printf "\e[1;31mdocker version: FAIL\n\e[0m"; exit 1; }
+if ! sudo docker version >/dev/null 2>&1 && ! sudo lxc-docker version >/dev/null 2>&1; then
+    printf "\e[1;31mdocker version: FAIL\n\e[0m"
+    exit
+fi
 # Then I expect success
-printf "\e[1;32mdocker: OK\n\e[0m";
+printf "\e[1;32mdocker: OK\n\e[0m"
