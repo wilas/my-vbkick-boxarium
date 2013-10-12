@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eEu
+set -e -E -u -o pipefail; shopt -s failglob;
 
 # Add vbkick user and group
 /usr/sbin/groupadd vbkick
