@@ -31,9 +31,10 @@ fi
 
 # Build and install the lxc-docker*.deb package from the github
 if ! dpkg -l lxc-docker >/dev/null 2>&1; then
-    ## get the src (other src: git://github.com/dotcloud/docker-debian.git)
-    cd /tmp && git clone git://github.com/dotcloud/docker.git
-    pkg_location="/tmp/docker/packaging/debian"
+    # Read: https://github.com/dotcloud/docker/pull/2169
+    #cd /tmp && git clone git://github.com/dotcloud/docker.git
+    cd /tmp && git clone git://github.com/dotcloud/docker-debian.git
+    pkg_location="/tmp/docker-debian/packaging/debian"
     ## install deps. needed to build package
     apt-get -y install mercurial build-essential debhelper autotools-dev #devscripts
     ## go was installed manually, remove golang from deps.
