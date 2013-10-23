@@ -12,6 +12,7 @@
  - example: http://www.debian.org/releases/wheezy/example-preseed.txt
  - example from ubuntu: http://sfxpt.wordpress.com/2013/06/09/get-the-debianubuntu-ready-and-customized-the-way-you-like-in-10-minutes/
  - http://www.debian.org/devel/debian-installer
+ - tasksel: https://wiki.debian.org/tasksel
 
 [Debian Stable + Backports]
  - http://backports.debian.org/
@@ -40,6 +41,15 @@
 
 [init]
  - upstart, systemd, sysvinit: http://lists.debian.org/debian-devel/2012/03/msg00452.html
+
+[desktop]
+ - flash: https://wiki.debian.org/Flash (http://www.cyberciti.biz/faq/debian-linux-7-wheezy-install-flash-player/)
+ - iceweasel/firefox: http://blog.toubiweb.com/iceweasel-firefox-on-debian/ (https://wiki.debian.org/Iceweasel)
+ - mozilla deb: http://mozilla.debian.net/
+ - java: http://openjdk.java.net/install/
+ - sound: https://wiki.debian.org/SoundCard
+ - sound troubleshooting: http://forums.debian.net/viewtopic.php?f=6&t=63720 (http://forums.debian.net/viewtopic.php?f=7&t=69198)
+ - multimedia: https://wiki.debian.org/DebianMultimedia/FAQ
 
 [Other]
  - debuild -us -uc (skip promptings for the GPG signatures): http://www.debian.org/doc/manuals/maint-guide/build.en.html#debuild

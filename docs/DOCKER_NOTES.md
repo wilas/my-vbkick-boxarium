@@ -64,3 +64,4 @@
 
 ## Mix
  - docker + desktop: http://blog.docker.io/2013/07/docker-desktop-your-desktop-over-ssh-running-inside-of-a-docker-container/
+ - docker + wercker: http://wercker.com/docker/
