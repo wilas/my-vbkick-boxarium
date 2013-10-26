@@ -8,13 +8,19 @@
  - liquorix multimedia kernel: http://liquorix.net/
 
 [Preseed]
- - !!! http://www.debian.org/releases/stable/amd64/apbs04.html.en
- - example: http://www.debian.org/releases/wheezy/example-preseed.txt
- - example from ubuntu: http://sfxpt.wordpress.com/2013/06/09/get-the-debianubuntu-ready-and-customized-the-way-you-like-in-10-minutes/
- - http://www.debian.org/devel/debian-installer
+ - !!! full example + description: http://www.debian.org/releases/stable/amd64/apbs04.html.en (http://www.debian.org/releases/stable/amd64/apb.html.en)
+ - !!! example: http://www.debian.org/releases/wheezy/example-preseed.txt
+ - ! example from ubuntu (keyboard): https://help.ubuntu.com/lts/installation-guide/i386/preseed-contents.html
+ - example from ubuntu (more links): http://sfxpt.wordpress.com/2013/06/09/get-the-debianubuntu-ready-and-customized-the-way-you-like-in-10-minutes/
+ - using preseed files: http://debian-handbook.info/browse/stable/sect.automated-installation.html
+ - install media: http://www.debian.org/devel/debian-installer
  - tasksel: https://wiki.debian.org/tasksel
+ - include other preseed files: http://www.debian.org/releases/stable/amd64/apbs05.html.en
+ - boot parameters: http://www.debian.org/releases/wheezy/i386/ch05s03.html.en
+ - aliases useful with preseeding: http://www.debian.org/releases/stable/i386/apbs02.html.en#preseed-bootparms
 
 [Debian Stable + Backports]
+ - full install guide: http://www.debian.org/releases/stable/amd64/
  - http://backports.debian.org/
  - http://backports.debian.org/Instructions/
 
@@ -50,6 +56,36 @@
  - sound: https://wiki.debian.org/SoundCard
  - sound troubleshooting: http://forums.debian.net/viewtopic.php?f=6&t=63720 (http://forums.debian.net/viewtopic.php?f=7&t=69198)
  - multimedia: https://wiki.debian.org/DebianMultimedia/FAQ
+
+[pl]
+ - keyboard-configuration (layoutcode)(XKBMODEL="pc105"): http://www.archivum.info/debian-bugs-closed@lists.debian.org/2010-03/00395/Bug-568475-marked-as-done-%28No-need-to-use-pc104-for-Brazilian-and-US-layouts%29.html
+ - Polonizacja: http://www.debian.pl/threads/524-Polonizacja-Debiana-Etch-Sid
+ - Locale: http://pl.wikipedia.org/wiki/Locale
+ - configure locale (/etc/locale.gen): http://people.debian.org/~schultmc/locales.html
+ - ubuntu + usb + pl: http://ubuntu.pl/forum/viewtopic.php?f=133&t=153208&sid=deffbbe98ba6022b3eea36ad72be8696&start=20
+ - setxkbmap pl (https://wiki.debian.org/Keyboard) (http://www.pclinuxos.com/forum/index.php?topic=95438.0)
+
+[keyboard]
+ - keyboard-configuration/modelcode=SKIP: http://ubuntuforums.org/archive/index.php/t-1865826.html
+ - keyboard + locale: http://ubuntuforums.org/archive/index.php/t-2004485.html
+ - XKB Configuration Guide: http://www.x.org/archive/X11R7.5/doc/input/XKB-Config.html
+ - setxkbmap pl: http://forums.debian.net/viewtopic.php?f=30&t=50215
+ - dpkg-reconfigure keyboard-configuration: https://wiki.debian.org/Keyboard
+ - keymap + linux_console + font (make pl): http://www.linuxfromscratch.org/lfs/view/development/chapter07/console.html
+ - select variant was necessary:  http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=610524
+
+[console-setup]
+ - pl lang. in Lat2 (files: /etc/default/console-setup; /etc/default/keyboard): http://dev.man-online.org/man5/console-setup/
+ - codesets to choose: http://dev.man-online.org/man5/console-setup/
+ - codeset problem (d-i console-setup/codesetcode string Uni1): https://bugs.launchpad.net/ubuntu/+source/console-setup/+bug/379498
+ - console-setup usually runs before the preseed file is processed (2008): https://lists.ubuntu.com/archives/ubuntu-installer/2008-October/000251.html
+ - whole bunch of settings (preseed): http://lists.debian.org/debian-boot/2010/10/msg00164.html
+
+[boot param.]
+ - !!! keymap question and boot settings (still English): http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=693956
+ - about boot param: http://www.debian.org/releases/stable/i386/ch05s03.html.en
+ - boot param example (auto-install/enable=false): http://www.credativ.co.uk/credativ-blog/2010/07/howto-debian-preseed-with-netboot
+ - auto=true as boot parameter does not work properly: https://bugs.launchpad.net/ubuntu/+source/debian-installer/+bug/827861
 
 [Other]
  - debuild -us -uc (skip promptings for the GPG signatures): http://www.debian.org/doc/manuals/maint-guide/build.en.html#debuild
