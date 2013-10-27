@@ -93,3 +93,4 @@
  - mozilla team: http://mozilla.debian.net/
  - missing firmware: http://www.debian.org/releases/stable/i386/ch06s04.html.en
  - sourcelist gen: http://debgen.simplylinux.ch/
+ - DEBIAN_FRONTED: https://github.com/travis-ci/travis-cookbooks/issues/80
