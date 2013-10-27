@@ -7,15 +7,7 @@ set -e -E -u -o pipefail; shopt -s failglob;
 apt-get -y install curl wget git
 
 # Install lxc, aufs and other dependencies (debootstrap libcap2-bin libpam-cap)
-if [[ ! -f "/etc/default/lxc" ]]; then
-cat > /etc/default/lxc << EOF
-# /etc/default/lxc
-
-LXC_AUTO="true"
-LXC_DIRECTORY="/var/lib/lxc"
-EOF
-fi
-apt-get -y install lxc aufs-tools bsdtar
+env DEBIAN_FRONTEND=noninteractive apt-get -y install lxc aufs-tools bsdtar
 
 # Install go1.1 (Wheezy has 1.0.2, but 1.1 is required for docker)
 ## remove go1.0.2 if exist
@@ -31,9 +23,10 @@ fi
 # Build and install the lxc-docker*.deb package from the github
 if ! dpkg -l lxc-docker >/dev/null 2>&1; then
     # Read: https://github.com/dotcloud/docker/pull/2169
-    #cd /tmp && git clone git://github.com/dotcloud/docker.git
     cd /tmp && git clone git://github.com/dotcloud/docker-debian.git
-    pkg_location="/tmp/docker-debian/packaging/debian"
+    cd /tmp && git clone git://github.com/dotcloud/docker.git
+    mv /tmp/docker-debian/packaging /tmp/docker
+    pkg_location="/tmp/docker/packaging/debian"
     ## install deps. needed to build package
     apt-get -y install mercurial build-essential debhelper autotools-dev #devscripts
     ## go was installed manually, remove golang from deps.

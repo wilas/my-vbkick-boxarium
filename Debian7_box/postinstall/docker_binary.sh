@@ -7,15 +7,7 @@ set -e -E -u -o pipefail; shopt -s failglob;
 apt-get -y install curl wget
 
 # Install lxc, aufs and other dependencies (debootstrap libcap2-bin libpam-cap)
-if [[ ! -f "/etc/default/lxc" ]]; then
-cat > /etc/default/lxc << EOF
-# /etc/default/lxc
-
-LXC_AUTO="true"
-LXC_DIRECTORY="/var/lib/lxc"
-EOF
-fi
-apt-get -y install lxc aufs-tools bsdtar
+env DEBIAN_FRONTEND=noninteractive apt-get -y install lxc aufs-tools bsdtar
 
 # Get the docker binary
 if [[ ! -f "/usr/local/bin/lxc-docker" ]]; then
