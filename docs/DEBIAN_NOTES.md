@@ -12,12 +12,14 @@
  - !!! example: http://www.debian.org/releases/wheezy/example-preseed.txt
  - ! example from ubuntu (keyboard): https://help.ubuntu.com/lts/installation-guide/i386/preseed-contents.html
  - example from ubuntu (more links): http://sfxpt.wordpress.com/2013/06/09/get-the-debianubuntu-ready-and-customized-the-way-you-like-in-10-minutes/
+ - example with X: http://www.debian.org/releases/etch/example-preseed.txt
  - using preseed files: http://debian-handbook.info/browse/stable/sect.automated-installation.html
  - install media: http://www.debian.org/devel/debian-installer
  - tasksel: https://wiki.debian.org/tasksel
  - include other preseed files: http://www.debian.org/releases/stable/amd64/apbs05.html.en
  - boot parameters: http://www.debian.org/releases/wheezy/i386/ch05s03.html.en
  - aliases useful with preseeding: http://www.debian.org/releases/stable/i386/apbs02.html.en#preseed-bootparms
+ - generate preseed - 4.13: http://www.debian.org/releases/stable/amd64/apbs04.html.en
 
 [Debian Stable + Backports]
  - full install guide: http://www.debian.org/releases/stable/amd64/
@@ -58,7 +60,6 @@
  - multimedia: https://wiki.debian.org/DebianMultimedia/FAQ
 
 [pl]
- - keyboard-configuration (layoutcode)(XKBMODEL="pc105"): http://www.archivum.info/debian-bugs-closed@lists.debian.org/2010-03/00395/Bug-568475-marked-as-done-%28No-need-to-use-pc104-for-Brazilian-and-US-layouts%29.html
  - Polonizacja: http://www.debian.pl/threads/524-Polonizacja-Debiana-Etch-Sid
  - Locale: http://pl.wikipedia.org/wiki/Locale
  - configure locale (/etc/locale.gen): http://people.debian.org/~schultmc/locales.html
@@ -68,11 +69,14 @@
 [keyboard]
  - keyboard-configuration/modelcode=SKIP: http://ubuntuforums.org/archive/index.php/t-1865826.html
  - keyboard + locale: http://ubuntuforums.org/archive/index.php/t-2004485.html
+ - keyboard-configuration (layoutcode)(XKBMODEL="pc105"): http://www.archivum.info/debian-bugs-closed@lists.debian.org/2010-03/00395/Bug-568475-marked-as-done-%28No-need-to-use-pc104-for-Brazilian-and-US-layouts%29.html
  - XKB Configuration Guide: http://www.x.org/archive/X11R7.5/doc/input/XKB-Config.html
  - setxkbmap pl: http://forums.debian.net/viewtopic.php?f=30&t=50215
  - dpkg-reconfigure keyboard-configuration: https://wiki.debian.org/Keyboard
  - keymap + linux_console + font (make pl): http://www.linuxfromscratch.org/lfs/view/development/chapter07/console.html
  - select variant was necessary:  http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=610524
+ - keyboard - various distro: http://www.howtoforge.com/changing-language-and-keyboard-layout-on-various-linux-distributions
+ - keyboard-configuration/layoutcode=us. "The layout code is an X layout name, as would be used in the XkbLayout option in /etc/X11/xorg.conf"
 
 [console-setup]
  - pl lang. in Lat2 (files: /etc/default/console-setup; /etc/default/keyboard): http://dev.man-online.org/man5/console-setup/
@@ -89,8 +93,7 @@
 
 [Other]
  - debuild -us -uc (skip promptings for the GPG signatures): http://www.debian.org/doc/manuals/maint-guide/build.en.html#debuild
- - multimedia (not recommended): http://www.deb-multimedia.org/ (Read me: https://wiki.debian.org/DebianMultimedia/FAQ)
- - mozilla team: http://mozilla.debian.net/
  - missing firmware: http://www.debian.org/releases/stable/i386/ch06s04.html.en
  - sourcelist gen: http://debgen.simplylinux.ch/
  - DEBIAN_FRONTED: https://github.com/travis-ci/travis-cookbooks/issues/80
+ - "Bootstraps a basic puppet defaults file over to the target drive": http://blogs.cae.tntech.edu/mwr/2007/04/17/unattended-debian-installations-or-how-i-learned-to-stop-worrying-and-love-the-preseedcfg/

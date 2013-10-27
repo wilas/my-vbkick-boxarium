@@ -15,17 +15,24 @@
  - docker git: http://blog.scoutapp.com/articles/2013/08/28/docker-git-for-deployment
  - docker & community proj.: http://blog.docker.io/2013/07/docker-projects-from-the-docker-community/
  - blog: http://blog.docker.io
+ - Cloundstack, openstack, openshift,
+ - Docker Ecosystem: http://www.slideshare.net/dotCloud/docker-at-yac-yandex-conference-moscow2013
+ - General simple presentation (like may other): http://www.slideshare.net/dotCloud/docker-resentation-meetupparis
+ - Overview: http://www.themiddlewareman.org/2013/09/27/docker-red-hat-openshift-tiping-point-open-paas/
 
 ## Ansible
  - docker + ansible: https://github.com/cove/docker-ansible
 
 ## Puppet
  - docker + puppet: http://blog.james-carr.org/2013/07/02/puppet-provisioning-in-docker/
+ - Try whether work: https://github.com/anderssv/puppet-docker
+ - Private docker reqistry: https://github.com/hopsoft/private-docker-registry
 
 ## Paas
  - https://flynn.io/
  - http://deis.io/
  - dokku
+ - cozy - personla cloud: https://www.cozycloud.cc/
 
 # LXC
  - http://wiki.gentoo.org/wiki/LXC
@@ -61,7 +68,15 @@
  - docker on centos6: http://nareshv.blogspot.co.uk/2013/08/installing-dockerio-on-centos-64-64-bit.html
  - docker on rhel6: https://github.com/dotcloud/docker/issues/172
  - docker on fedora18: http://neh.al/?p=1
+ - Docker on fedora: http://goldmann.pl/blog/2013/09/25/docker-and-fedora/
+ - fedora: http://goldmann.fedorapeople.org/repos/docker/
+ - fedora: https://bugzilla.redhat.com/show_bug.cgi?id=1000662
+ - Docker + redhat: http://techcrunch.com/2013/09/19/dotcloud-pivots-and-wins-big-with-docker-the-cloud-service-now-part-of-red-hat-openshift/
+ - Docker + redhat: http://www.redhat.com/about/news/press-archive/2013/9/red-hat-and-dotcloud-collaborate-on-docker-to-bring-next-generation-linux-container-enhancements-to-openshift
+ - Docker and redhat: http://blog.docker.io/2013/09/red-hat-and-docker-collaborate/
 
 ## Mix
  - docker + desktop: http://blog.docker.io/2013/07/docker-desktop-your-desktop-over-ssh-running-inside-of-a-docker-container/
  - docker + wercker: http://wercker.com/docker/
+ - Docker workshop: http://www.slideshare.net/dotCloud/dockerfile-basics-docker-workshop-1-at-rackspace
+ - Docker + nova: http://www.slideshare.net/dotCloud/docker-open-stack
