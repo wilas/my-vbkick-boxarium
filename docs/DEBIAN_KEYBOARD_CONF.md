@@ -3,9 +3,9 @@
 ## Helpful configuration commands
 
 ```
-    ls -la /usr/share/X11/xkb/symbols/pl
-    sudo dpkg-reconfigure keyboard-configuration 
-    sudo dpkg-reconfigure console-setup
+ls -la /usr/share/X11/xkb/symbols/pl
+sudo dpkg-reconfigure keyboard-configuration 
+sudo dpkg-reconfigure console-setup
 ```
 
 ## Correct settings output
@@ -53,44 +53,44 @@ vagrant@vagrant:~$ sudo debconf-show keyboard-configuration
 
 ```
 vagrant@vagrant:~$ cat /etc/default/keyboard 
-    # KEYBOARD CONFIGURATION FILE
+# KEYBOARD CONFIGURATION FILE
 
-    # Consult the keyboard(5) manual page.
+# Consult the keyboard(5) manual page.
 
-    XKBMODEL="pc105"
-    XKBLAYOUT="pl"
-    XKBVARIANT=""
-    XKBOPTIONS=""
+XKBMODEL="pc105"
+XKBLAYOUT="pl"
+XKBVARIANT=""
+XKBOPTIONS=""
 
-    BACKSPACE="guess"
+BACKSPACE="guess"
 ```
 
 ```
 vagrant@vagrant:~$ cat /etc/default/console-setup 
-    # CONFIGURATION FILE FOR SETUPCON
+# CONFIGURATION FILE FOR SETUPCON
 
-    # Consult the console-setup(5) manual page.
+# Consult the console-setup(5) manual page.
 
-    ACTIVE_CONSOLES="/dev/tty[1-6]"
+ACTIVE_CONSOLES="/dev/tty[1-6]"
 
-    CHARMAP="UTF-8"
+CHARMAP="UTF-8"
 
-    CODESET="Lat2"
-    FONTFACE="Fixed"
-    FONTSIZE="8x16"
+CODESET="Lat2"
+FONTFACE="Fixed"
+FONTSIZE="8x16"
 
-    VIDEOMODE=
+VIDEOMODE=
 
-    # The following is an example how to use a braille font
-    # FONT='lat9w-08.psf.gz brl-8x8.psf'
+# The following is an example how to use a braille font
+# FONT='lat9w-08.psf.gz brl-8x8.psf'
 ```
 
 ## Dump cmds for preseed.
 
 ```
-    sudo apt-get -y install debconf-utils
-    sudo debconf-get-selections --installer > preseed.cfg
-    sudo debconf-get-selections >> preseed.cfg
+sudo apt-get -y install debconf-utils
+sudo debconf-get-selections --installer > preseed.cfg
+sudo debconf-get-selections >> preseed.cfg
 ```
 
 ## Installation - boot parameters
