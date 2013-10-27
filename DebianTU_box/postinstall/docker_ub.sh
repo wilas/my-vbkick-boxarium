@@ -17,15 +17,7 @@ if [[ ! -f "/etc/apt/sources.list.d/docker.list" ]]; then
 fi
 
 # Install lxc-docker with dependencies
-if [[ ! -f "/etc/default/lxc" ]]; then
-cat > /etc/default/lxc << EOF
-# /etc/default/lxc
-
-LXC_AUTO="true"
-LXC_DIRECTORY="/var/lib/lxc"
-EOF
-fi
-apt-get -y install lxc-docker --force-yes || true
+env DEBIAN_FRONTEND=noninteractive apt-get -y install lxc-docker || true
 # Fix installation - Ubuntu package use upstart to start/stop the docker daemon, this doesn't work on Debian
 version=$(apt-cache search lxc-docker | sort -r -k1,1 | head -1 | cut -f1 -d' ' | tr -d 'lxc-docker-')
 sed -i 's:/sbin/start:#/sbin/start:' /var/lib/dpkg/info/lxc-docker-$version.postinst
