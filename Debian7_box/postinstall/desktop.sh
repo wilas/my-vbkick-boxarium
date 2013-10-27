@@ -16,7 +16,7 @@ apt-get -y install -t wheezy-backports iceweasel
 #fi
 
 # Flash
-## update repo with contrib and non-free: 'deb http://ftp.uk.debian.org/debian wheezy main contrib non-free'
+## update repo with contrib and non-free (may be done in preseed.cfg): 'deb http://ftp.uk.debian.org/debian wheezy main contrib non-free'
 #apt-get -y install flashplugin-nonfree
 
 # Java
