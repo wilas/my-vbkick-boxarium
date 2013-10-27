@@ -103,7 +103,7 @@ More, why both: (keymap question and boot settings, but still English): http://b
 
 ## Installation - preseed
 
-!! Note: Not working when keymap boot parameters are used.
+!! Note: If not auto=true then keymap boot parameters are used.
 ```
 d-i debian-installer/keymap select pl
 d-i keyboard-configuration/xkb-keymap select pl
@@ -140,6 +140,7 @@ d-i debian-installer/locale string en_US.UTF-8
 d-i localechooser/supported-locales multiselect en_US.UTF-8, pl_PL.UTF-8
 ```
 
+# Time zone
 ```
 d-i clock-setup/utc boolean true
 d-i time/zone string Europe/Warsaw
