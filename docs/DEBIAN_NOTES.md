@@ -58,6 +58,7 @@
  - sound: https://wiki.debian.org/SoundCard
  - sound troubleshooting: http://forums.debian.net/viewtopic.php?f=6&t=63720 (http://forums.debian.net/viewtopic.php?f=7&t=69198)
  - multimedia: https://wiki.debian.org/DebianMultimedia/FAQ
+ - minimal install (wifi + select only SSH Server, Laptop Tools, and System Utilities)(openbox as WM): http://linuxforcynics.com/how-to/minimal-debian-install
 
 [pl]
  - Polonizacja: http://www.debian.pl/threads/524-Polonizacja-Debiana-Etch-Sid
