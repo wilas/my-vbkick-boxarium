@@ -12,8 +12,8 @@ puppet.sh
 chef.sh
 cfengine.sh
 nfs.sh
-#docker_binary.sh
-docker_source.sh
+docker_binary.sh
+#docker_source.sh
 #docker_ub.sh
 cleanup.sh
 zerodisk.sh
