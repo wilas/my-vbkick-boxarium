@@ -11,6 +11,7 @@ puppet.sh
 chef.sh
 cfengine.sh
 docker.sh
+software_collections.sh
 nfs.sh
 cleanup.sh
 zerodisk.sh

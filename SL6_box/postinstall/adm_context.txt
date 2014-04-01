@@ -11,6 +11,7 @@ ansible.sh
 puppet.sh
 chef.sh
 cfengine.sh
+software_collections.sh
 nfs.sh
 cleanup.sh
 zerodisk.sh
