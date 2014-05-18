@@ -7,7 +7,8 @@ yum -y --enablerepo=epel install docker-io
 if ! service docker status > /dev/null; then
     service docker restart
     service docker status || true
-    # Usually: 'docker dead but subsys locked', better is just reboot host.
+    # Usually: 'docker dead but subsys locked', better is just reboot the host.
+    chkconfig docker on
 fi
 
 # Quick test
