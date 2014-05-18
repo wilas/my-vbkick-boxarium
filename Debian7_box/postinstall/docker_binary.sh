@@ -2,7 +2,8 @@
 set -e -E -u -o pipefail; shopt -s failglob;
 
 # Install docker using binaries from docker.io: http://docs.docker.io/en/latest/installation/binaries/
-docker_path="/usr/local/bin/lxc-docker"
+docker_bin="docker.io"
+docker_path="/usr/local/bin/${docker_bin}"
 
 # Extra packages needed
 apt-get -y install curl wget
@@ -16,8 +17,8 @@ if [[ ! -f "${docker_path}" ]]; then
     # wget -O /tmp/docker-latest.tgz --no-check-certificate http://get.docker.io/builds/Linux/x86_64/docker-latest.tgz
     # tar -xfz docker-latest.tgz -C /tmp
     # install -g 0 -o 0 -m 0755 -p /tmp/usr/local/bin/docker "${docker_path}"
-    wget -O /tmp/docker --no-check-certificate https://get.docker.io/builds/Linux/x86_64/docker-latest
-    install -g 0 -o 0 -m 0755 -p /tmp/docker "${docker_path}"
+    wget -O /tmp/${docker_bin}.bin --no-check-certificate https://get.docker.io/builds/Linux/x86_64/docker-latest
+    install -g 0 -o 0 -m 0755 -p /tmp/${docker_bin}.bin "${docker_path}"
 fi
 
 # Enable IPv4 forwarding (by default disabled on Debian)
@@ -35,21 +36,25 @@ sed -i 's:^#GRUB_CMDLINE_LINUX=:GRUB_CMDLINE_LINUX=:' /etc/default/grub
 sed -i 's:^GRUB_CMDLINE_LINUX=.*:GRUB_CMDLINE_LINUX="cgroup_enable=memory swapaccount=1":' /etc/default/grub
 update-grub
 
-# Creates init.d srcipt and enable service
-if [[ ! -f "/etc/init.d/lxc-docker" ]]; then
-    wget -O /tmp/lxc-docker.init --no-check-certificate https://raw.github.com/dotcloud/docker-debian/master/packaging/debian/lxc-docker.init
-    sed -i "s:^DOCKER=.*:DOCKER=${docker_path}:" /tmp/lxc-docker.init
-    install -g 0 -o 0 -m 0755 -p /tmp/lxc-docker.init /etc/init.d/lxc-docker
-    service lxc-docker start
-    insserv lxc-docker
-    # alternative: update-rc.d lxc-docker defaults; update-rc.d -f lxc-docker remove
+# Create init.d srcipt and enable service
+if [[ ! -f "/etc/init.d/${docker_bin}" ]]; then
+    # create system docker group
+    /usr/sbin/groupadd -r docker
+    wget -O /tmp/${docker_bin}.init --no-check-certificate https://raw.githubusercontent.com/dotcloud/docker/master/contrib/init/sysvinit-debian/docker
+    wget -O /tmp/${docker_bin}.default --no-check-certificate https://raw.githubusercontent.com/dotcloud/docker/master/contrib/init/sysvinit-debian/docker.default
+    sed -i "s:^#DOCKER=.*:DOCKER=\"${docker_path}\":" /tmp/${docker_bin}.default
+    install -g 0 -o 0 -m 0644 -p /tmp/${docker_bin}.default /etc/default/${docker_bin}
+    install -g 0 -o 0 -m 0755 -p /tmp/${docker_bin}.init /etc/init.d/${docker_bin}
+    service ${docker_bin} start
+    insserv ${docker_bin}
+    # alternative: update-rc.d ${docker_bin} defaults; update-rc.d -f ${docker_bin} remove
 fi
 
-# Note1: cgroups are mounted on the system via docker init script
+# NB1: cgroups are mounted on the system via docker init script
 
 # Quick test
 # sudo lxc-checkconfig
-# sudo service lxc-docker status
-# sudo lxc-docker info
-# sudo lxc-docker run -i -t ubuntu /bin/bash
-# sudo lxc-docker run -dns 8.8.8.8 centos ping google.com
+# sudo service docker.io status
+# sudo docker.io info
+# sudo docker.io run -i -t ubuntu /bin/bash
+# sudo docker.io run -dns 8.8.8.8 centos ping google.com
