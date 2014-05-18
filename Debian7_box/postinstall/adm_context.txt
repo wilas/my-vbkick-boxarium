@@ -2,7 +2,6 @@
 # Note: scripts are exec in order defined here
 base.sh
 sudo.sh
-#vagrant.sh
 virtualbox.sh
 ruby.sh
 ansible.sh
@@ -10,5 +9,6 @@ puppet.sh
 chef.sh
 cfengine.sh
 nfs.sh
+keyboard_pl.sh
 cleanup.sh
 zerodisk.sh
