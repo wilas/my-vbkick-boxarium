@@ -3,7 +3,7 @@ set -e -E -u -o pipefail; shopt -s failglob;
 
 # Add vbkick user and group
 /usr/sbin/groupadd vbkick
-/usr/sbin/useradd vbkick -g vbkick -G wheel -c "vbkick box user"
+/usr/sbin/useradd vbkick -g vbkick -G wheel -c "vbkick"
 # set password
 echo "vbkick" | passwd --stdin vbkick
 # give sudo access (grants all permissions to user vbkick)
