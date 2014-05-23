@@ -1,9 +1,8 @@
 # this is comment
 # Note: scripts are exec in order defined here
-#unstable.sh
+sid.sh
 base.sh
 sudo.sh
-#vagrant.sh
 virtualbox.sh
 ruby.sh
 ansible.sh
@@ -11,7 +10,6 @@ puppet.sh
 chef.sh
 cfengine.sh
 nfs.sh
-#docker_binary.sh
-docker_ub.sh
+keyboard_pl.sh
 cleanup.sh
 zerodisk.sh

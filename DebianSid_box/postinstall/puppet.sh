@@ -7,4 +7,4 @@ if [[ ! -f "/etc/apt/sources.list.d/puppetlabs.list" ]]; then
     rm -f /tmp/puppetlabs-release-sid.deb
     apt-get -y update
 fi
-apt-get install -y hiera puppet facter
+apt-get install -y puppet facter hiera
