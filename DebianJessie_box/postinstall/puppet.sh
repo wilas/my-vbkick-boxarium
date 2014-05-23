@@ -7,5 +7,4 @@ if [[ ! -f "/etc/apt/sources.list.d/puppetlabs.list" ]]; then
     rm -f /tmp/puppetlabs-release-sid.deb
     apt-get -y update
 fi
-# https://tickets.puppetlabs.com/browse/CPR-13 hiera (v1.3.2) conflicts with the system package - ruby-hiera
-apt-get install -y puppet facter #hiera
+apt-get install -y puppet facter hiera
