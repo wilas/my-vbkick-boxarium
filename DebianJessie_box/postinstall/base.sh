@@ -10,6 +10,3 @@ apt-get -y dist-upgrade
 if ! grep -q '^UseDNS no' /etc/ssh/sshd_config; then
     echo 'UseDNS no' >> /etc/ssh/sshd_config
 fi
-
-# If X needed
-#apt-get install xserver-xorg xserver-xorg-core
