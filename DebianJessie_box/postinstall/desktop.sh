@@ -18,6 +18,7 @@ set -e -E -u -o pipefail; shopt -s failglob;
 # Flash
 ## update repo with contrib and non-free (done in preseed.cfg): 'deb http://ftp.uk.debian.org/debian jessie main contrib non-free'
 #apt-get -y install flashplugin-nonfree
+#apt-get -y install pepperflashplugin-nonfree
 
 # Java
 # apt-cache search openjdk
