@@ -3,6 +3,13 @@ set -e -E -u -o pipefail; shopt -s failglob;
 
 # Install lxc-docker using ubuntu repo from docker.io
 
+# Check arch
+arch=$(uname -m)
+if [[ "${arch}" != 'x86_64' ]]; then
+    echo "${arch} arch is not supported."
+    exit 0
+fi
+
 # Extra packages needed
 apt-get -y install curl apt-transport-https
 

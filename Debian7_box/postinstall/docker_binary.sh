@@ -2,6 +2,15 @@
 set -e -E -u -o pipefail; shopt -s failglob;
 
 # Install docker using binaries from docker.io: http://docs.docker.io/en/latest/installation/binaries/
+
+# Check arch
+arch=$(uname -m)
+if [[ "${arch}" != 'x86_64' ]]; then
+    echo "${arch} arch is not supported."
+    exit 0
+fi
+
+# docker binary name and destination
 docker_bin="docker.io"
 docker_path="/usr/local/bin/${docker_bin}"
 
