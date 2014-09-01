@@ -24,9 +24,9 @@ fi
 #if ! yum list installed atrpms-repo >/dev/null 2>&1; then
 #    rpm --import http://packages.atrpms.net/RPM-GPG-KEY.atrpms
 #    if [[ "${arch}" == 'x86_64' ]]; then
-#        rpm -ivh http://dl.atrpms.net/all/atrpms-repo-6-6.el6.x86_64.rpm
+#        rpm -ivh http://dl.atrpms.net/el6-x86_64/atrpms/stable/atrpms-repo-6-7.el6.x86_64.rpm
 #    elif [[ "${arch}" == 'i386' ]] || [[ "${arch}" == 'i686' ]]; then
-#        rpm -ivh http://dl.atrpms.net/all/atrpms-repo-6-6.el6.i686.rpm
+#        rpm -ivh http://dl.atrpms.net/el6-i386/atrpms/stable/atrpms-repo-6-7.el6.i686.rpm
 #    fi
 #fi
 
