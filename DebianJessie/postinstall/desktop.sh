@@ -9,7 +9,7 @@ set -e -E -u -o pipefail; shopt -s failglob;
 # Install the new iceweasel from unstable repo
 #apt-get -y install -t unstable iceweasel
 
-# Add backports (choose your mirror from http://backports.debian.org/Mirrors/)(done in preseed.cfg)
+# Add backports (done in preseed.cfg)
 #if [[ ! -f "/etc/apt/sources.list.d/jessie-backports.list" ]]; then
 #    echo 'deb http://ftp.debian.org/debian jessie-backports main' > /etc/apt/sources.list.d/jessie-backports.list
 #    apt-get -y update
